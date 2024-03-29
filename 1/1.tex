@@ -49,6 +49,11 @@
 \usepackage{cellspace}
 \cellspacetoplimit 4pt
 \cellspacebottomlimit 4pt
+
+%%%% define custom command for a raised chi 
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}} % inner command, used by \rchi
+
 %% END PREAMBLE %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -67,21 +72,39 @@
       \item 
       \begin{align*}
         &\frac{1}{2} \left(  e ^ {i \theta } + e ^ {- i \theta } \right) \\
-        &= \frac{1}{2} \left( \cos \theta + i \sin \theta + \frac{1}{\cos \theta + i \sin \theta} \right) \\
-        &= \frac{1}{2} \left( \frac{\cos ^2 \theta + i \sin \theta \cos \theta}{\cos \theta + i \sin \theta } + \frac{i \sin \theta \cos \theta - \sin ^2 \theta }{\cos \theta i \sin \theta } + \frac{1}{\cos \theta + i \sin \theta }   \right) \\
-        &= \frac{1}{2} \left( \frac{2 \cos ^2 \theta + 2i \cos \theta \sin \theta }{\cos \theta + i \sin \theta } \right) \\
-        &= \frac{2 \cos \theta }{2} \left( \frac{\cos \theta +i \sin \theta }{\cos \theta +i \sin \theta } \right) \\
-        &= \cos  \theta 
+        =& \frac{1}{2} \left( \cos \theta + i \sin \theta + \frac{1}{\cos \theta + i \sin \theta} \right) \\
+        =& \frac{1}{2} \left( \frac{\cos ^2 \theta + i \sin \theta \cos \theta}{\cos \theta + i \sin \theta } + \frac{i \sin \theta \cos \theta - \sin ^2 \theta }{\cos \theta i \sin \theta } + \frac{1}{\cos \theta + i \sin \theta }   \right) \\
+        =& \frac{1}{2} \left( \frac{2 \cos ^2 \theta + 2i \cos \theta \sin \theta }{\cos \theta + i \sin \theta } \right) \\
+        =& \frac{2 \cos \theta }{2} \left( \frac{\cos \theta +i \sin \theta }{\cos \theta +i \sin \theta } \right) \\
+        =& \cos  \theta 
       \end{align*}
       \begin{align*}
         &\frac{1}{2i} \left( e ^ {i \theta } - e ^ {-i \theta } \right) \\
-        &= \frac{1}{2i} \left( \cos \theta +i\sin \theta - \frac{1}{\cos \theta +i\sin \theta } \right) \\
-        &= \frac{1}{2} \left( \frac{\cos ^2 \theta + i \sin \theta \cos \theta}{\cos \theta + i \sin \theta } + \frac{i \sin \theta \cos \theta - \sin ^2 \theta }{\cos \theta i \sin \theta } - \frac{1}{\cos \theta + i \sin \theta }   \right) \\
-        &= \frac{1}{2i} \left( \frac{-2\sin  ^2 \theta +2i\sin \theta \cos \theta }{\cos \theta +i\sin \theta } \right) \\
-        &= \sin \theta \left( \frac{-\sin \theta + i\cos \theta }{-\sin \theta + i\cos \theta } \right) \\
-        &= \sin \theta 
+        =& \frac{1}{2i} \left( \cos \theta +i\sin \theta - \frac{1}{\cos \theta +i\sin \theta } \right) \\
+        =& \frac{1}{2} \left( \frac{\cos ^2 \theta + i \sin \theta \cos \theta}{\cos \theta + i \sin \theta } + \frac{i \sin \theta \cos \theta - \sin ^2 \theta }{\cos \theta i \sin \theta } - \frac{1}{\cos \theta + i \sin \theta }   \right) \\
+        =& \frac{1}{2i} \left( \frac{-2\sin  ^2 \theta +2i\sin \theta \cos \theta }{\cos \theta +i\sin \theta } \right) \\
+        =& \sin \theta \left( \frac{-\sin \theta + i\cos \theta }{-\sin \theta + i\cos \theta } \right) \\
+        =& \sin \theta 
       \end{align*}
     \item 
+      The probability density, $ P \left( x \right) $ is defined:
+      \begin{equation*}
+        P \left( x \right) = \psi ^* \left( x \right)\psi \left( x \right)
+      \end{equation*}
+      So we have:
+      \begin{align*}
+        P \left( x \right) &= \rchi (x) e ^ {-i \varphi } \rchi (x) e ^ {i \varphi } \\
+                           &= \left[ \rchi (x)  \right] ^2
+      \end{align*}
+      Hence we see that the probability density is independent of the global complex phase factor.
+    \item 
+      \begin{align*}
+        & \sin \theta \sin \varphi \\
+        = & \frac{1}{2i}\frac{1}{2i}\left( e ^ {i\theta }-e ^ {-i\theta } \right) \left( e ^ {i\varphi }-e ^ {-i\varphi } \right) \\
+        =& -\frac{1}{4} \left[ e ^ {i\theta +i\varphi } - e ^ {i\theta -i\varphi } - e ^ {i\varphi -i\theta } + e ^ {-i\theta -i\varphi } \right] \\
+        =& -\frac{1}{4} \left[ 2\cos \left( \theta +\varphi  \right) - 2\cos \left( \theta -\varphi  \right) \right] \\
+        =& \frac{1}{2} \left[ \cos \left( \theta -\varphi  \right) - \cos \left( \theta +\varphi  \right) \right]
+      \end{align*}
     \end{enumerate}
 \end{enumerate}
 
