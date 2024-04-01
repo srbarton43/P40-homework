@@ -106,6 +106,25 @@
         =& \frac{1}{2} \left[ \cos \left( \theta -\varphi  \right) - \cos \left( \theta +\varphi  \right) \right]
       \end{align*}
     \end{enumerate}
+  \item
+    To show that the eigenstates of the infinite square well have been normalized between $ x=0 $ and $ x=a $, we must show that its inner product is one over that region:
+
+    \begin{align*}
+      & \int_{0}^{a} \left| \psi_n \right|^2 dx \\
+      =& \frac{2}{a} \int_{0}^{a} \sin ^2 \left( \frac{n \pi x}{a} \right) dx\\
+      =& \frac{2}{a} \left[ \frac{x}{2} - \frac{a \sin \left( \frac{2 n\pi x}{a} \right)}{4 n\pi} \right]_0^a \\
+      =& \frac{2}{a} \cdot \frac{a}{2} \\
+      =& 1
+    \end{align*}
+    Hence the eigenstates are normalized.
+  \item 
+    \begin{align*}
+      &\int_{0}^{a} \psi_n \psi_m dx \\
+     =&~\frac{2}{a} \int_{0}^{a} \sin \left( \frac{n \pi x}{a} \right) \sin \left( \frac{m \pi x}{a} \right) dx \\ 
+     =&~a \int_{0}^{a} \left[ \cos \left( \frac{\left( n-m \right)\pi}{a}x \right) - \cos \left( \frac{\left( n+m \right)\pi}{a}x \right) \right]dx && \text{(Using the trig identity from 1c)} \\
+     =&~a \left[ \frac{a}{\left( n-m \right)\pi} \sin \left( \frac{\left( n-m \right)\pi}{a}x \right) - \frac{a}{\left( n+m \right)\pi} \sin \left( \frac{\left( n+m \right)\pi}{a}x \right) \right]_0^a \\
+     =&~0 && \text{(Because m and n are integers)}
+   \end{align*}
 \end{enumerate}
 
 \end{document}
