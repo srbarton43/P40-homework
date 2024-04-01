@@ -107,6 +107,9 @@
       \end{align*}
     \end{enumerate}
   \item
+  \begin{enumerate}
+    
+    \item 
     To show that the eigenstates of the infinite square well have been normalized between $ x=0 $ and $ x=a $, we must show that its inner product is one over that region:
 
     \begin{align*}
@@ -125,6 +128,71 @@
      =&~a \left[ \frac{a}{\left( n-m \right)\pi} \sin \left( \frac{\left( n-m \right)\pi}{a}x \right) - \frac{a}{\left( n+m \right)\pi} \sin \left( \frac{\left( n+m \right)\pi}{a}x \right) \right]_0^a \\
      =&~0 && \text{(Because m and n are integers)}
    \end{align*}
+  \item 
+    To show that the eigenstates for the QHM are orthogonal, $ \psi_0 $ and $ \psi_2 $, we must show that the expression $ \int_{-\infty}^{\infty} \psi_0 \psi_2 dx = 0$. \\
+    First substitute $ H_0 \left( \xi \right)=1 $ and $ H_2 \left( \xi \right)=4\xi^2-2 $ and put everything in terms of $ \xi $.
+    We also drop all normalization constants for clarity since they do not matter when showing orthogonality:
+    \begin{align*}
+      &\psi_0 \left( x \right) = e ^ {\frac{1}{2}\xi ^2} && \psi_2 \left( x \right) = \left( 4 \xi - 2 \right) e ^ {- \frac{1}{2} \xi}
+    \end{align*}
+
+    \begin{align*}
+      &~\int_{-\infty}^{\infty} \psi_0 \psi_2 dx \\
+     =&~\int_{-\infty}^{\infty} e ^ {\frac{1}{2}\xi ^2} \left( 4 \xi - 2 \right) e ^ {- \frac{1}{2} \xi} d\xi \\
+     =&~ \int_{-\infty}^{\infty} \left[ 4\xi^2 e ^ {-\xi^2} -2e ^ {-\xi^2} \right]d\xi \\
+     =&~ \left[ -2\xi e ^ {-\xi^2} d\xi \right]_{-\infty}^{\infty} \\
+     =&~ 0
+    \end{align*}
+    Hence, we have shown that the two eigenstates are orthogonal.
+    
+  \end{enumerate}
+  \item 
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \item 
+  \begin{itemize}
+    \item
+      \textit{(6-30)} \\
+      The zero-point energy is given by:
+      \begin{align*}
+        E_0&=\frac{1}{2} \hslash \omega \\
+           &= \frac{1}{2}\hslash \sqrt{\frac{C}{m}} \\
+           &= \frac{1}{2} \left( 1.05 \times 10 ^ {-34} \right) \sqrt{\frac{10^3}{4.1 \times 10^{-26}}} && \text{Plugging in numbers} \\
+           &\approx 8.20 \times 10 ^{-21}~\text{J} \quad \text{or} \quad 0.051~\text{eV}
+      \end{align*}
+    \item 
+      \textit{(6-31)}
+      \begin{enumerate}
+      \item To get the discrete energy levels for the SHO, we have the equation:
+        \begin{equation*}
+          E_n=\left( n+\frac{1}{2} \right)\omega
+        \end{equation*}
+        Thus,
+        \begin{equation*}
+          E_{photon} = \Delta E = E_1-E_0 \approx 0.154~\text{eV} - 0.051~\text{eV} = 0.103~\text{eV}
+        \end{equation*}
+      \item We expect that the energy emitted is equal to the difference in energy between the ground state and first energy level, or $ 0.103~\text{eV} $.
+      \item 
+        For the photon,
+        \begin{equation*}
+          E_{photon} = \hslash \omega_{photon}
+        \end{equation*}
+        And, we also know that
+        \begin{align*}
+          &E_{photon} = \Delta E = \hslash \omega && \text{(where $ \omega $ is the classical oscillation frequency)}
+        \end{align*}
+        Thus,
+        \begin{equation*}
+          \omega_{photon} = \omega
+        \end{equation*}
+        We get frequency, $ f $:
+        \begin{equation*}
+          f = \frac{E_{photon}}{h} = \frac{0.102 \cdot 1.6 \times 10^{-19}}{6.626 \times 10^{-34}} = 2.46 \times 10^{13}~\text{Hz}
+        \end{equation*}
+        This frequency ($ \lambda \approx 12000~\text{nm} $) corresponds with infrared light.
+      \end{enumerate}
+  \end{itemize}
 \end{enumerate}
 
 \end{document}
