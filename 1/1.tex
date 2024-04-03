@@ -24,7 +24,9 @@
 
 %%%% Defines Times New Roman as font
   % for math and text environments
-\usepackage{newtxtext,newtxmath}
+%\usepackage{newtxtext,newtxmath}
+
+\usepackage{newcomputermodern}
 
 %%%% For H float option when inserting figure
 %   [H] inserts figure _exactly_ where it is typeset
@@ -53,6 +55,9 @@
 %%%% define custom command for a raised chi 
 \DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
 \newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}} % inner command, used by \rchi
+
+%%%% For dirac notation
+\usepackage{braket}
 
 %% END PREAMBLE %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,9 +129,9 @@
     \begin{align*}
       &\int_{0}^{a} \psi_n \psi_m dx \\
      =&~\frac{2}{a} \int_{0}^{a} \sin \left( \frac{n \pi x}{a} \right) \sin \left( \frac{m \pi x}{a} \right) dx \\ 
-     =&~a \int_{0}^{a} \left[ \cos \left( \frac{\left( n-m \right)\pi}{a}x \right) - \cos \left( \frac{\left( n+m \right)\pi}{a}x \right) \right]dx && \text{(Using the trig identity from 1c)} \\
+     =&~a \int_{0}^{a} \left[ \cos \left( \frac{\left( n-m \right)\pi}{a}x \right) - \cos \left( \frac{\left( n+m \right)\pi}{a}x \right) \right]dx && \text{(using the trig identity from 1c)} \\
      =&~a \left[ \frac{a}{\left( n-m \right)\pi} \sin \left( \frac{\left( n-m \right)\pi}{a}x \right) - \frac{a}{\left( n+m \right)\pi} \sin \left( \frac{\left( n+m \right)\pi}{a}x \right) \right]_0^a \\
-     =&~0 && \text{(Because m and n are integers)}
+     =&~0 && \text{(because m and n are integers)}
    \end{align*}
   \item 
     To show that the eigenstates for the QHM are orthogonal, $ \psi_0 $ and $ \psi_2 $, we must show that the expression $ \int_{-\infty}^{\infty} \psi_0 \psi_2 dx = 0$. \\
@@ -140,7 +145,7 @@
       &~\int_{-\infty}^{\infty} \psi_0 \psi_2 dx \\
      =&~\int_{-\infty}^{\infty} e ^ {\frac{1}{2}\xi ^2} \left( 4 \xi - 2 \right) e ^ {- \frac{1}{2} \xi} d\xi \\
      =&~ \int_{-\infty}^{\infty} \left[ 4\xi^2 e ^ {-\xi^2} -2e ^ {-\xi^2} \right]d\xi \\
-     =&~ \left[ -2\xi e ^ {-\xi^2} d\xi \right]_{-\infty}^{\infty} \\
+     =&~ 2 \sqrt{\pi} - 2 \sqrt{\pi} && \text{(using "Handy Integrals")} \\
      =&~ 0
     \end{align*}
     Hence, we have shown that the two eigenstates are orthogonal.
@@ -149,6 +154,27 @@
   \item 
     \begin{enumerate}
       \item 
+        To show that $ \lvert \Psi \left( x,t \right) \rangle $ is normalized, we must show:
+        \begin{equation*}
+          \langle \Psi \left( x,t \right) \vert \Psi \left( x,t \right) \rangle = 1
+        \end{equation*}
+        We start:
+        \begin{equation*}
+        \langle \Psi \left( x,t \right) \vert \Psi \left( x,t \right) \rangle = \frac{1}{2}\left[ \langle \psi_{1}\vert\psi_{1} \rangle + \langle \psi_{2} \vert \psi_{2} \rangle + \langle \psi_{2} \vert \psi_{1} \rangle e ^ {\left( E_2-E_1 \right) \frac{it}{\hslash}} + \langle \psi_{1} \vert \psi_{2} \rangle e ^ {\left( E_1-E_2 \right) \frac{it}{\hslash}} \right]
+        \end{equation*}
+        Since we have shown in \textit{(2a, 2b)} that the eigenstates of the infinite square well, $ \langle \psi_{n} \vert \psi_{m} \rangle = \delta_{nm} $ where $ \delta_{nm} $ is the Kronecker delta, the right hand side simplifies:
+        \begin{align*}
+        &= \frac{1}{2} \left[ 1+1+0+0 \right]  \\
+        &= 1 \\
+        \end{align*}
+        Hence, we have shown that the superposition state is normalized.
+      \item 
+        \begin{align*}
+          \braket{\Psi| \hat{H} | \Psi} &= \frac{1}{2}\left( \braket{\psi_{1} | \hat{H} | \psi_{1}} + \braket{\psi_{2} | \hat{H} | \psi_{2}} + \braket{\psi_{2} | \hat{H} | \psi_{1}} e ^ {\left( E_2-E_1 \right) \frac{it}{\hslash}} + \braket{\psi_{1} | \hat{H} | \psi_{2}} e ^ {\left( E_1-E_2 \right) \frac{it}{\hslash}}\right) \\
+        & = \frac{1}{2}\left( \braket{\psi_{1} | E_{1} | \psi_{1}} + \braket{\psi_{2} | E_{2} | \psi_{2}} + \braket{\psi_{2} | E_{1} | \psi_{1}} e ^ {\left( E_2-E_1 \right) \frac{it}{\hslash}} + \braket{\psi_{1} | E_{2} | \psi_{2}} e ^ {\left( E_1-E_2 \right) \frac{it}{\hslash}}\right) \\
+        & = \frac{1}{2}\left( E_{1} \braket{\psi_{1} | \psi_{1}} + E_{2} \braket{\psi_{2} | \psi_{2}} + E_{1} \braket{\psi_{2} | \psi_{1}} e ^ {\left( E_2-E_1 \right) \frac{it}{\hslash}} + E_{2} \braket{\psi_{1} | \psi_{2}} e ^ {\left( E_1-E_2 \right) \frac{it}{\hslash}}\right) \\
+        &= \frac{1}{2}\left( E_1+E_2 \right) \qquad \text{(applying simplification as in (a))}
+        \end{align*}
     \end{enumerate}
   \item 
   \begin{itemize}
@@ -158,7 +184,7 @@
       \begin{align*}
         E_0&=\frac{1}{2} \hslash \omega \\
            &= \frac{1}{2}\hslash \sqrt{\frac{C}{m}} \\
-           &= \frac{1}{2} \left( 1.05 \times 10 ^ {-34} \right) \sqrt{\frac{10^3}{4.1 \times 10^{-26}}} && \text{Plugging in numbers} \\
+           &= \frac{1}{2} \left( 1.05 \times 10 ^ {-34} \right) \sqrt{\frac{10^3}{4.1 \times 10^{-26}}} && \text{(plugging in numbers)} \\
            &\approx 8.20 \times 10 ^{-21}~\text{J} \quad \text{or} \quad 0.051~\text{eV}
       \end{align*}
     \item 
