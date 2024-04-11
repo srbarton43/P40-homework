@@ -72,5 +72,58 @@
   \section*{HOMEWORK 2}
 \end{centering}
 
+\begin{enumerate}
+  \item For the Time-Independent Schrodinger Equation in 3-D, we have:
+    \begin{equation*}
+      - \frac{\hslash}{2 \mu} \nabla ^2 + U \left( x,y,z \right) \Psi \left( x,y,z \right) = E \Psi \left( x,y,z \right)
+    \end{equation*}
+    Plugging in the potential $ U \left( x,y,z \right) = \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right) $, we have:
+    \begin{equation*}
+      - \frac{\hslash}{2 \mu} \nabla ^2 + \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right)  \Psi \left( x,y,z \right) = E \Psi \left( x,y,z \right)
+    \end{equation*}
+    For using the separation of variables method, we must split the Schr{\"o}dinger equation into parts which depend only on $ x $, $ y $, and $ z $.
+
+    First, we expand the "del" operator into its separate terms:
+    \begin{equation*}
+      - \frac{\hslash}{2 \mu} \left( \frac{\partial^2 }{\partial x^2}+\frac{\partial ^2}{\partial y^2} + \frac{\partial ^2}{\partial z^2} \right) + \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right)  \Psi \left( x,y,z \right) = E \Psi \left( x,y,z \right)
+    \end{equation*}
+  \item 
+  \item 
+  \item 
+  \item 
+    \begin{align*}
+      \hat{L}^2 Y_{1}^{-1}\left( \theta, \varphi \right) &= - \hslash^2 \left[ \frac{1}{\sin \theta} \frac{\partial }{\partial \theta} \left( \sin \theta \frac{\partial }{\partial \theta} \frac{1}{2} \sqrt{\frac{3}{2\pi}} \sin \theta e ^ {-i \varphi} \right) + \frac{1}{\sin ^2 \theta} \frac{\partial ^2}{\partial \varphi^2} \frac{1}{2}\sqrt{\frac{3}{2\pi}} \sin \theta e ^ {-i \varphi}\right] \\
+      &=  - \hslash^2 \frac{1}{2} \sqrt{\frac{3}{2\pi}} \left[ \frac{1}{\sin \theta} \frac{\partial }{\partial \theta} \sin \theta \cos \theta e ^ {-i \varphi} - \frac{1}{\sin ^2 \theta} \sin \theta e ^ {-i \varphi}\right] \\
+      &=  - \hslash^2 \frac{1}{2} \sqrt{\frac{3}{2\pi}} \left[ \frac{\cos^2\theta-\sin^2\theta}{\sin \theta} e ^ {-i \varphi} - \frac{1}{\sin \theta} e ^ {-i \varphi}\right] \\
+      &=  - \hslash^2 \frac{1}{2} \sqrt{\frac{3}{2\pi}} e ^ {-i\varphi}\left[ \frac{1-2\sin^2\theta}{\sin \theta} - \frac{1}{\sin \theta} \right] \\
+      &=  \hslash^2 \frac{1}{2} \sqrt{\frac{3}{2\pi}} e ^ {-i\varphi} 2 \sin\theta \\
+      &= 2 \hslash^2 ~ Y_{1}^{-1} \left( \theta, \varphi \right)
+    \end{align*}
+    Thus, $ 2 \hslash ^2 $ is the eigenvalue.
+
+    \begin{align*}
+      \hat{L}_{z} Y_{1}^{-1}\left( \theta, \varphi \right) &= \frac{\hslash}{i} \frac{\partial }{\partial \varphi} \left[ \frac{1}{2} \sqrt{\frac{3}{2\pi}} \sin \theta e ^ {-i \varphi}\right] \\
+      &= -i \frac{\hslash}{i} \frac{1}{2} \sqrt{\frac{3}{2\pi}} \sin \theta e ^ {-i \varphi} \\
+      &= - \hslash ~ Y_{1}^{-1}\left( \theta, \varphi \right)
+    \end{align*}
+    Thus, $ -\hslash $ is the eigenvalue.
+
+    \begin{align*}
+      \hat{L}^2 Y_{2}^{2}\left( \theta, \varphi \right) &= - \hslash^2 \left[ \frac{1}{\sin \theta} \frac{\partial }{\partial \theta} \left( \sin \theta \frac{\partial }{\partial \theta} \frac{1}{4} \sqrt{\frac{15}{2\pi}} \sin ^2 \theta e ^ {2i \varphi} \right) + \frac{1}{\sin ^2 \theta} \frac{\partial ^2}{\partial \varphi^2} \frac{1}{4}\sqrt{\frac{15}{2\pi}} \sin ^2 \theta e ^ {2i \varphi}\right] \\
+      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ \frac{1}{\sin \theta} \frac{\partial }{\partial \theta} 2 \sin^2\theta\cos\theta - \frac{4 \sin^2\theta}{\sin ^2 \theta} \right] \\
+      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ \frac{1}{\sin \theta} \left( 4 \cos^2\theta \sin\theta - \sin^3\theta \right) - 4 \right] \\
+      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ 4 \cos^2 \theta - \sin ^2 \theta - 4 \right] \\
+      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ 4 - 4 \sin^2 \theta - \sin ^2 \theta - 4 \right] \\
+      &= 5 \hslash^2 ~ Y_2^2 \left( \theta, \varphi \right)
+    \end{align*}
+    Thus, the eigenvalue is $ 5 \hslash ^2 $.
+
+    \begin{align*}
+      \hat{L}_{z} Y_{2}^{2}\left( \theta, \varphi \right) &= \frac{\hslash}{i} \frac{\partial }{\partial \varphi} \left[ \frac{1}{4} \sqrt{\frac{15}{2\pi}} \sin^2 \theta e ^ {2i \varphi}\right] \\
+      &= 2\hslash ~ \hat{L}_{z} Y_{2}^{2}\left( \theta, \varphi \right) 
+    \end{align*}
+    Thus, the eigenvalue is $ 2 \hslash $.
+\end{enumerate}
+
 \end{document}
 
