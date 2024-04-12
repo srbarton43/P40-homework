@@ -73,23 +73,228 @@
 \end{centering}
 
 \begin{enumerate}
-  \item For the Time-Independent Schrodinger Equation in 3-D, we have:
+  \item 
+  \begin{enumerate}
+    \item For the Time-Independent Schr{\"o}dinger Equation in 3-D, we have:
     \begin{equation*}
-      - \frac{\hslash}{2 \mu} \nabla ^2 + U \left( x,y,z \right) \Psi \left( x,y,z \right) = E \Psi \left( x,y,z \right)
+      - \frac{\hslash}{2 \mu} \nabla ^2 + U \left( x,y,z \right) \psi \left( x,y,z \right) = E \psi \left( x,y,z \right)
     \end{equation*}
     Plugging in the potential $ U \left( x,y,z \right) = \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right) $, we have:
     \begin{equation*}
-      - \frac{\hslash}{2 \mu} \nabla ^2 + \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right)  \Psi \left( x,y,z \right) = E \Psi \left( x,y,z \right)
+      - \frac{\hslash}{2 \mu} \nabla ^2 + \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right)  \psi \left( x,y,z \right) = E \psi \left( x,y,z \right)
     \end{equation*}
     For using the separation of variables method, we must split the Schr{\"o}dinger equation into parts which depend only on $ x $, $ y $, and $ z $.
 
-    First, we expand the "del" operator into its separate terms:
+    First, we expand the ``del" operator into its separate terms:
     \begin{equation*}
-      - \frac{\hslash}{2 \mu} \left( \frac{\partial^2 }{\partial x^2}+\frac{\partial ^2}{\partial y^2} + \frac{\partial ^2}{\partial z^2} \right) + \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right)  \Psi \left( x,y,z \right) = E \Psi \left( x,y,z \right)
+      - \frac{\hslash}{2 \mu} \left( \frac{\partial^2 }{\partial x^2}+\frac{\partial ^2}{\partial y^2} + \frac{\partial ^2}{\partial z^2} \right) + \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right)  \psi \left( x,y,z \right) = E \psi \left( x,y,z \right)
+    \end{equation*}
+
+    Now, consider the separable wave function:
+    
+    \begin{equation*}
+      \psi \left( x,y,z \right) = X \left( x \right) Y \left( y \right) Z \left( z \right)
+    \end{equation*}
+
+    Now rewrite the schr{\"o}dinger equation:
+    \begin{equation*}
+      - \frac{\hslash}{2 \mu} \left( \frac{\partial^2 }{\partial x^2}+\frac{\partial ^2}{\partial y^2} + \frac{\partial ^2}{\partial z^2} \right) + \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right) XYZ = E~XYZ
+    \end{equation*}
+    And divide both sides by $ \psi = XYZ $:
+    \begin{equation*}
+      - \frac{\hslash}{2 \mu} \left( \frac{1}{X}\frac{\partial^2 }{\partial x^2}+\frac{1}{Y}\frac{\partial ^2}{\partial y^2} + \frac{1}{Z}\frac{\partial ^2}{\partial z^2} \right) + \frac{1}{2} \mu \omega ^2 \left( x^2+y^2+z^2 \right) = E
+    \end{equation*}
+    Expanding terms, we get:
+    \begin{equation*}
+      \left[ -\frac{\hslash}{2\mu} \frac{1}{X} \frac{d ^2 X}{d x^2} + \frac{1}{2} \mu \omega ^2 x^2 \right] + 
+      \left[ -\frac{\hslash}{2\mu} \frac{1}{Y} \frac{d ^2 Y}{d y^2} + \frac{1}{2} \mu \omega ^2 y^2 \right] + 
+      \left[ -\frac{\hslash}{2\mu} \frac{1}{Z} \frac{d ^2 Z}{d z^2} + \frac{1}{2} \mu \omega ^2 z^2 \right] = E
+    \end{equation*}
+    Hence, we have shown that the Time-Independent Schr{\"o}dinger can be rewritten using separation of variables, each separation in terms of only $ x $, $ y $, and $ z $ respectively. \\
+    Now, we will show that each separation can be solved by treating it as a 1-D QHO which we solved in class. \\
+    Consider the component which is only a function of $ x $:
+
+    \begin{equation*}
+      - \frac{\hslash}{2 \mu} \frac{1}{X} \frac{d ^2 X}{d x^2} + \frac{1}{2} \mu \omega ^2 x^2 = E_{x}
+    \end{equation*}
+
+    Now multiply both sides by $ X $:
+    \begin{equation*}
+      - \frac{\hslash}{2 \mu} \frac{d^2X}{dx^2} + \frac{1}{2} \mu \omega^2 x^2 X = E_{x}
+    \end{equation*}
+    The equation now matches the 1-D QHO from class.
+    From the lecture notes, we have:
+    \begin{equation*}
+      \frac{1}{2} m \omega x_0^2 = E_0
+    \end{equation*}
+    Thus, 
+    \begin{equation*}
+      x_0^2 = \frac{\hslash}{\mu \omega}
+    \end{equation*}
+    And
+    \begin{equation*}
+      x_0 = \sqrt{\frac{\hslash}{\mu \omega}} = \ell_{zp}
+    \end{equation*}
+
+    Thus, we can take the wave function from class, and substitute $ x_0 = \ell_{zp} $, getting
+    \begin{equation*}
+      X_{p} \left( x \right) = A_x H_p \left( \frac{x}{\ell_{zp}} \right) e ^ {\frac{-x^2}{2\ell_{zp}^2}}
+    \end{equation*}
+    For the eigenenergy, we have:
+    \begin{equation*}
+      E_{x} = \left( p + \frac{1}{2} \right) \hslash \omega
+    \end{equation*}
+    Repeating the same steps for $ y $ and $ z $ and multiplying the separated wavefunctions together to get the complete wavefunction, we get:
+
+    \begin{equation*}
+      \psi_{pqs} \left( x,y,z \right) = A_{pqs} H_p \left( x/\ell_{zp} \right) H_q \left( y/\ell_{zp} \right) H_s \left( z/\ell_{zp} \right) e ^ {- \left( x^2+y^2+z^2 \right)/2\ell_{zp}}
+    \end{equation*}
+    
+    With $ E_n = E_p+E_q+E_s $, we get:
+    \begin{equation*}
+      E_n = \left( n+\frac{3}{2} \right)\hslash \omega 
     \end{equation*}
   \item 
+    Using the notation $ \left( p,q,s \right) $:
+    \begin{itemize}
+      \item $ n=0 $: we have 1 degenerate state:
+        \begin{gather*}
+          \left( 0,0,0 \right)
+        \end{gather*}
+      \item $ n=1 $: we have 3 degenerate states:
+        \begin{gather*}
+          \left( 1,0,0 \right)\\
+          \left( 0,1,0 \right)\\
+          \left( 0,0,1 \right)
+        \end{gather*}
+      \item $ n=2 $: we have 6 degenerate states:
+        \begin{gather*}
+          \left( 1,1,0 \right)\\
+          \left( 1,0,1 \right)\\
+          \left( 0,1,1 \right) \\
+          \left( 2,0,0 \right) \\
+          \left( 0,2,0 \right) \\
+          \left( 0,0,2 \right)
+        \end{gather*}
+    \end{itemize}
+  \end{enumerate}
   \item 
+    \begin{enumerate}
+    \item We guess that a superposition of $ \Psi_{100} $ and $ \Psi_{010} $ will yield a stationary state.
+
+      \begin{equation*}
+        \Psi_{100} = A_{100} 2x e ^ {- \left( x^2+y^2+z^2 \right)/2\ell_{zp}^2}e ^ {iEt / \hslash}
+      \end{equation*}
+      
+      \begin{equation*}
+        \Psi_{010} = A_{010} 2y e ^ {- \left( x^2+y^2+z^2 \right)/2\ell_{zp}^2}e ^ {iEt / \hslash}
+      \end{equation*}
+      Now, starting with the time-dependent SE:
+      \begin{align*}
+        -\frac{\hslash^2}{2\mu} \nabla ^2 \Psi + U\Psi &= i \hslash \frac{\partial \Psi}{\partial t} \\
+        -\frac{\hslash^2}{2\mu} \nabla ^2 \left( \psi_{100} + \psi_{010} \right) e ^ {-iEt/\hslash}+ U \left( \psi_{100} + \psi_{010} \right) e ^ {-iEt / \hslash}&= E e ^ {-Et / \hslash}\left( \psi_{100} + \psi_{010} \right)
+      \end{align*}
+      Since these are two degenerate eigenstates, they have the same Energy, $ E $, and thus we can divide both sides by $ e ^ {-iEt /\hslash} $
+      \begin{equation*}
+        -\frac{\hslash}{2 \mu} \nabla^2 \left( \psi_{100} + \psi_{010} \right) + U \left( \psi_{100} + \psi_{010} \right) = E \left( \psi_{100} + \psi_{010} \right)
+      \end{equation*}
+      Since there is no time dependence, this superposition state is a stationary state.
+      Also, we know that it is (one of) the superposition state(s) with the lowest possible energy, because $ n=1 $ yields the smallest eigenenergy which has degeneracies.
+    \item We guess the superposition of $ \Psi_{000} $ and $ \Psi_{100} $ will yield the lowest possible energy that is not a stationary state.
+
+      \begin{equation*}
+        \Psi_{000} = A_{000} e ^ {- \left( x^2+y^2+z^2 \right)/2\ell_{zp}^2}e ^ {iE_0t / \hslash} = \psi_{000} e ^ {i E_0 t / \hslash}
+      \end{equation*}
+      \begin{equation*}
+        \Psi_{100} = A_{100} 2x e ^ {- \left( x^2+y^2+z^2 \right)/2\ell_{zp}^2}e ^ {iE_1t / \hslash} = \psi_{100} e ^ {iE_1t / \hslash}
+      \end{equation*}
+
+      \begin{align*}
+        -\frac{\hslash^2}{2\mu} \nabla ^2 \Psi + U\Psi &= i \hslash \frac{\partial \Psi}{\partial t} \\
+        -\frac{\hslash^2}{2\mu} \nabla ^2 \left( \psi_{000} e ^ {i E_0 t / \hslash} + \psi_{100} e ^ {iE_1t / \hslash} \right) + U\left( \psi_{000} e ^ {i E_0 t / \hslash} + \psi_{100} e ^ {iE_1t / \hslash} \right) &= i \hslash \frac{\partial }{\partial t} \left( \psi_{000} e ^ {i E_0 t / \hslash} + \psi_{100} e ^ {iE_1t / \hslash} \right)
+      \end{align*}
+
+      We note that, unlike the last problem, we cannot cancel out the time-dependent terms in this equation, and thus this superposition is not a stationary state.
+      Furthermore, it must be the superposition state with the lowest possible energy since it is a superposition of the two lowest eigenenergies.
+
+    \item 
+      Adding back the normalization constants to the corresponding eigenstates, we have:
+      \begin{equation*}
+        \Psi = A_{100} \psi_{100} e ^ {-i E_1 t / \hslash} + A_{010} \psi_{010} e ^ {-i E_1 t / \hslash}
+      \end{equation*}
+
+      In dirac notation, we have:
+
+      \begin{align*}
+        \braket{\Psi | \Psi} &= A_{100}^2 \braket{\psi_{100} | \psi_{100}} + A_{010}^2 \braket{\psi_{010} | \psi_{010}} + A_{100}A_{010} \left( \braket{\psi_{100} | \psi_{010}} + \braket{\psi_{010} | \psi_{100}} \right) e ^ {-2i E_1 t / \hslash} \\
+        &= A_{100}^2 + A_{010}^2 = 1
+      \end{align*}
+      Since $ A_{100} = A_{010} $, we get
+      \begin{equation*}
+        A_{100} = A_{010} = \frac{1}{\sqrt{2}}
+      \end{equation*}
+
+      \begin{align*}
+        \braket{E} &= \braket{\Psi | \hat{H} \Psi} \\
+                   &= E_1 \braket{\Psi|\Psi} \\
+                   &= E_1 \left[ A_{100}^2 \braket{\psi_{100} | \psi_{100}} + A_{010}^2 \braket{\psi_{010} | \psi_{010}} + A_{100}A_{010} \left( \braket{\psi_{100} | \psi_{010}} + \braket{\psi_{010}|\psi_{100}} \right) e ^ {-2i E_1 t / \hslash} \right] \\
+                   &= E_1 \left[ A_{100}^2 + A_{010}^2 \right] \\
+                   &= E_1
+      \end{align*}
+      We see that the expectation value, $ \braket{E} $, is independent of time.
+
+    \end{enumerate}
   \item 
+    We start with the Hamiltonian: 
+    \begin{equation*}
+      \hat{H} = - \frac{\hslash}{2\mu} \frac{1}{r^2} \frac{\partial }{\partial r} \left( r^2 \frac{\partial }{\partial r} \right) + \frac{\hat{L}^2}{2\mu r^2} + U \left( r \right)
+    \end{equation*}
+
+    Propose the separable form for the wave function $ \psi \left( r, \theta, \varphi \right) $:
+    \begin{equation*}
+       \psi \left( r, \theta, \phi \right) = R \left( r \right) Y \left( \theta, \varphi \right)
+    \end{equation*}
+    See that $ R \left( r \right) $ is only in terms of radial component, $ r $ and $ Y \left( \theta, \varphi \right) $ is only in terms of the angular components $ \theta, \varphi $.
+
+    Substituting the new wave separated wave function with the Hamiltonian, the equation $ \hat{H} \psi = E \psi$ becomes: 
+    \begin{equation*}
+      \left[ - \frac{\hslash}{2\mu} \frac{1}{r^2} \frac{\partial }{\partial r} \left( r^2 \frac{\partial }{\partial r} \right) + \frac{\hat{L}^2}{2\mu r^2} + U \left( r \right) \right] R \left( r \right) Y \left( \theta, \varphi \right) = E R \left( r \right) Y \left( \theta, \varphi \right) 
+    \end{equation*}
+    Now dividing both sides by $ Y \left( \theta, \varphi \right) $:
+    \begin{equation*}
+       - \frac{\hslash}{2\mu} \frac{1}{r^2} \frac{\partial }{\partial r} \left( r^2 \frac{\partial }{\partial r} \right) + \frac{\hat{L}^2}{2\mu r^2} + U \left( r \right)  R \left( r \right) = E R \left( r \right) 
+    \end{equation*}
+  \item 
+    \begin{enumerate}
+    \item 
+      The function $ \Phi \left( \varphi \right) = \cos \left( m \varphi \right) $ is not an eigenfunction for the $ \hat{L}_{z} $ operator.
+      I will prove this by showing that there is no constant eigenvalue:
+      \begin{align*}
+      \hat{L}_{z} \Phi \left( \varphi \right) &= \frac{\hslash}{i}\frac{\partial }{\partial \varphi} \cos \left( m \varphi \right) \\
+      &= - \frac{m\hslash}{i} \sin \left( m \varphi \right)
+      \end{align*}
+      Now we see that there is no $ \lambda $ for which $ \hat{L}_{z} \Phi = \lambda \Phi $.
+
+    \item I will show that a wave function with $ \Phi \left( \varphi \right) \cos \left(  m \varphi \right)$ as the $  \varphi $ dependence can be a stationary state.
+      First, we use the identity from last homework to rewrite:
+      \begin{equation*}
+        \cos \left( m \varphi \right) = e ^ {im\varphi}/2 + e ^ {-im\varphi}/2
+      \end{equation*}
+      Now, consider the two separate Hamiltionians associated with each term: \\
+      First, for $ e ^ {im\varphi}/2 $:
+      \begin{equation*}
+        \hat{H} \Phi \left( \varphi \right) = E \Phi \left( \varphi \right)
+      \end{equation*}
+      Becomes...
+      \begin{align*}
+        - \frac{\hslash}{2\mu r^2} \left[ \frac{\partial }{\partial r} \left( r^2 \frac{\partial }{\partial r} F \left( r, \theta \right) e ^ {im \varphi} /2\right) + \frac{1}{\sin\theta} \frac{\partial }{\partial \theta} \left( \sin\theta \frac{\partial }{\partial \theta} F \left( r, \theta \right) e ^ {im \varphi} \right) + \frac{1}{\sin ^2 \theta} \frac{\partial^2 }{\partial \varphi^2} F \left( r, \theta \right) e ^ {im \varphi} \right] &= E F \left( r, \theta \right) e ^ {im \varphi} \\
+        e ^ {im \varphi}- \frac{\hslash}{2\mu r^2} \left[ \frac{\partial }{\partial r} \left( r^2 \frac{\partial }{\partial r} F \left( r, \theta \right) \right) + \frac{1}{\sin\theta} \frac{\partial }{\partial \theta} \left( \sin\theta \frac{\partial }{\partial \theta} F \left( r, \theta \right) \right) + \frac{1}{\sin ^2 \theta} F \left( r, \theta \right) \left( -m^2 \right) \right] &= E F \left( r, \theta \right) e ^ {im \varphi} \\
+        - \frac{\hslash}{2\mu r^2} \left[ \frac{\partial }{\partial r} \left( r^2 \frac{\partial }{\partial r} F \left( r, \theta \right) \right) + \frac{1}{\sin\theta} \frac{\partial }{\partial \theta} \left( \sin\theta \frac{\partial }{\partial \theta} F \left( r, \theta \right) \right) + \frac{1}{\sin ^2 \theta} F \left( r, \theta \right) \left( -m^2 \right) \right] &= E F \left( r, \theta \right) \\
+      \end{align*}
+      Since $ \frac{d}{d \varphi} \left[ e ^ {-im\varphi} \right] = -m^2 $ also, we get the same result for $ e ^ {-im\varphi} $.
+      Therefore, since we have a superposition of states with identical eigenenergies, and we know that the superposition of two stationary eigenstates with the same eigenenergy also yields a stationary state, we have that this superposition is also a stationary state.
+      Hence, we have shown that a wave function with $ \Phi \left( \varphi \right) = \cos \left( m \varphi \right) $ as its $ \varphi $ dependence can be a stationary state.
+  \end{enumerate}
   \item 
     \begin{align*}
       \hat{L}^2 Y_{1}^{-1}\left( \theta, \varphi \right) &= - \hslash^2 \left[ \frac{1}{\sin \theta} \frac{\partial }{\partial \theta} \left( \sin \theta \frac{\partial }{\partial \theta} \frac{1}{2} \sqrt{\frac{3}{2\pi}} \sin \theta e ^ {-i \varphi} \right) + \frac{1}{\sin ^2 \theta} \frac{\partial ^2}{\partial \varphi^2} \frac{1}{2}\sqrt{\frac{3}{2\pi}} \sin \theta e ^ {-i \varphi}\right] \\
@@ -111,12 +316,12 @@
     \begin{align*}
       \hat{L}^2 Y_{2}^{2}\left( \theta, \varphi \right) &= - \hslash^2 \left[ \frac{1}{\sin \theta} \frac{\partial }{\partial \theta} \left( \sin \theta \frac{\partial }{\partial \theta} \frac{1}{4} \sqrt{\frac{15}{2\pi}} \sin ^2 \theta e ^ {2i \varphi} \right) + \frac{1}{\sin ^2 \theta} \frac{\partial ^2}{\partial \varphi^2} \frac{1}{4}\sqrt{\frac{15}{2\pi}} \sin ^2 \theta e ^ {2i \varphi}\right] \\
       &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ \frac{1}{\sin \theta} \frac{\partial }{\partial \theta} 2 \sin^2\theta\cos\theta - \frac{4 \sin^2\theta}{\sin ^2 \theta} \right] \\
-      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ \frac{1}{\sin \theta} \left( 4 \cos^2\theta \sin\theta - \sin^3\theta \right) - 4 \right] \\
-      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ 4 \cos^2 \theta - \sin ^2 \theta - 4 \right] \\
-      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ 4 - 4 \sin^2 \theta - \sin ^2 \theta - 4 \right] \\
-      &= 5 \hslash^2 ~ Y_2^2 \left( \theta, \varphi \right)
+      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ \frac{1}{\sin \theta} \left( 4 \cos^2\theta \sin\theta - 2\sin^3\theta \right) - 4 \right] \\
+      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ 4 \cos^2 \theta - 2\sin ^2 \theta - 4 \right] \\
+      &= - \hslash^2 \frac{1}{4} \sqrt{\frac{15}{2\pi}} e ^ {2i\varphi}\left[ 4 - 4 \sin^2 \theta - 2\sin ^2 \theta - 4 \right] \\
+      &= 6 \hslash^2 ~ Y_2^2 \left( \theta, \varphi \right)
     \end{align*}
-    Thus, the eigenvalue is $ 5 \hslash ^2 $.
+    Thus, the eigenvalue is $ 6 \hslash ^2 $.
 
     \begin{align*}
       \hat{L}_{z} Y_{2}^{2}\left( \theta, \varphi \right) &= \frac{\hslash}{i} \frac{\partial }{\partial \varphi} \left[ \frac{1}{4} \sqrt{\frac{15}{2\pi}} \sin^2 \theta e ^ {2i \varphi}\right] \\
