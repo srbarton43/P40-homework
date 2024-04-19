@@ -1,0 +1,221 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN PREAMBLE
+\documentclass[10pt]{article}
+
+%%%% Sets 1 inch margins on document
+\usepackage[margin=1in]{geometry}
+
+%%%% For math macros
+\usepackage{amsmath}
+
+%%%% Needed for including figures and other images
+\usepackage{graphicx}
+
+%%%% Adds ability to adjust document vertical spacing
+% usage:
+%   \setspace{1.5} % 1.5x for line spacing
+\usepackage{setspace}
+
+%%%% Needed for specifying the list items in enumerate env
+% eg. (a,b,b) or (i,ii,iii), (1,2,3)
+% usage:
+%   \begin{enumerate} [label=(\alph*)] % for (a), (b), (c)
+\usepackage{enumitem}
+
+%%%% Defines Times New Roman as font
+  % for math and text environments
+%\usepackage{newtxtext,newtxmath}
+
+  % actually use newcomputermodern
+\usepackage{newcomputermodern}
+
+%%%% For H float option when inserting figure
+%   [H] inserts figure _exactly_ where it is typeset
+% usage:
+%   begin{figure} [H]
+\usepackage{float}
+
+%%%% For fancy header and footer ;)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO,L]{Samuel Barton}
+\fancyhead[CO,C]{PHYS40 - Homework 3}
+\fancyhead[RO,R]{\today}
+\fancyfoot[LO,L]{}
+\fancyfoot[CO,C]{\thepage}
+\fancyfoot[RO,R]{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%%% Setting margins in tabular environments
+% For making equations (esp. fractions) fit in cells vertically
+\usepackage{cellspace}
+\cellspacetoplimit 4pt
+\cellspacebottomlimit 4pt
+
+%%%% define custom command for a raised chi 
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}} % inner command, used by \rchi
+
+%%%% For dirac notation
+\usepackage{braket}
+
+%% END PREAMBLE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\setstretch{1.25} % set spacing to 1.25x
+
+% Assignment Name
+\begin{centering}
+  \section*{HOMEWORK 3}
+\end{centering}
+
+\begin{enumerate}
+  \item
+  Here are the 5 spherical harmonics for $ \ell=2 $:
+  \begin{gather*}
+  Y_{2}^{\pm 2} \left( \theta, \varphi \right) = \frac{1}{2} \sqrt{\frac{15}{2\pi}} \sin ^2 \theta e ^ {\pm 2i \varphi} \\
+  Y_{2}^{1} \left( \theta, \varphi \right) = -\frac{1}{2} \sqrt{\frac{15}{2\pi}} \sin \theta \cos \theta e ^ {\pm i \varphi} \\
+  Y_{2}^{-1} \left( \theta, \varphi \right) = \frac{1}{2} \sqrt{\frac{15}{2\pi}} \sin \theta \cos \theta e ^ {\pm -i \varphi} \\
+  Y_{2}^{0} \left( \theta, \varphi \right) = \frac{1}{4} \sqrt{\frac{5}{\pi}} \left( 3 \cos ^2 \theta - 1 \right)
+  \end{gather*}
+  Thus, their sum:
+  \begin{align*}
+    \sum_{m=-2}^{2} Y_{2}^{m}*Y_{2}^{m} &= 2 \left( \frac{15}{32\pi} \sin^2\theta \right) + 2 \left( \frac{15}{8\pi} \sin^2\theta \cos^2\theta \right) + \frac{5}{16\pi} \left( 3 \cos^2\theta - 1 \right) ^2 \\
+    &= \frac{5}{16\pi} \left( 3\sin^2\theta + 12 \sin ^2 \theta \cos ^2 \theta + 9 \cos ^{4} \theta - 6 \cos ^2 \theta + 1 \right) \\
+    &= \frac{5}{16\pi} \left[ 3 \sin ^2 \theta \left( 1- \cos^2\theta \right) 12 \sin^2 \theta \cos^2 \theta + 9 \cos ^2 \theta \left(  1- \sin ^2 \theta \right) - 6 \cos^2 \theta + 1 \right] \\
+    &= \frac{5}{16\pi} \left( 3 \sin ^2 \theta + 3 \cos ^2 \theta + 1 \right) \\
+    &= \frac{5}{4\pi} = \frac{2 \ell + 1}{4\pi}
+  \end{align*}
+
+  Hence, we have verified Uns{\"o}ld's theorem for $ \ell = 2 $, and shown that the completely closed atomic subshell is independent of $ \theta $ and $ \varphi $.
+  
+  \item 
+  \begin{enumerate}
+    \item
+    \begin{align*}
+      \braket{r} &= \int_{0}^{\infty} r \mathcal{P}_{n, n-1} dr \\
+      &= \int_{0}^{\infty} r ^3 R^2_{n,n-1} dr \\
+      &= \int_{0}^{\infty} \left[ r^3 \left( \frac{2}{n a_0} \right) ^3 \frac{1}{\left( 2n \right)!} \left( \frac{2r}{n a_0} \right) ^{2(n-1)} e ^ {-2r / n a_0} \right] dr \\
+      &= \frac{1}{\left( 2n \right)!} \int_{0}^{\infty} \left( \frac{2r}{n a_0} \right) ^{2n+1} e ^ {-2r /n a_0} dr \\
+      &= \frac{n a_0}{2} \frac{1}{\left( 2n \right)!} \int_{0}^{\infty} u ^{2n+1} e ^ {-u} du && u = \frac{2r}{n a_0}\quad du=\frac{2}{n a_0}dr \\
+      &= \frac{n a_0}{2} \frac{1}{\left( 2n \right)!} \left( 2n+1 \right)!\\
+      &= \frac{n a_0}{2} \frac{1}{\left( 2n \right)!} \left( 2n \right)! \left( 2n+1 \right)\\
+      &= \left( 2n+1 \right)\frac{n a_0}{2} 
+    \end{align*}
+    \item 
+    We have:
+    \begin{equation*}
+      \braket{r^2} = \int_{0}^{\infty} r^2 \mathcal{P}_{n.n-1}dr
+    \end{equation*}
+    I am only repeating all of the math from the previous part because I can copy/paste (finally a Latex win!!).
+    Note that it is pretty much identical to before:
+    \begin{align*}
+      \braket{r^2} &= \int_{0}^{\infty} r^2 \mathcal{P}_{n, n-1} dr \\
+      &= \int_{0}^{\infty} r ^4 R^2_{n,n-1} dr \\
+      &= \int_{0}^{\infty} \left[ r^4 \left( \frac{2}{n a_0} \right) ^3 \frac{1}{\left( 2n \right)!} \left( \frac{2r}{n a_0} \right) ^{2(n-1)} e ^ {-2r / n a_0} \right] dr \\
+      &= \frac{n a_0}{2}\frac{1}{\left( 2n \right)!} \int_{0}^{\infty} \left( \frac{2r}{n a_0} \right) ^{2n+2} e ^ {-2r /n a_0} dr \\
+      &= \left(\frac{n a_0}{2}\right)^2 \frac{1}{\left( 2n \right)!} \int_{0}^{\infty} u ^{2n+2} e ^ {-u} du && u = \frac{2r}{n a_0}\quad du=\frac{2}{n a_0}dr \\
+      &= \left(\frac{n a_0}{2}\right)^2 \frac{1}{\left( 2n \right)!} \left( 2n+2 \right)!\\
+      &= \left(\frac{n a_0}{2}\right)^2 \frac{1}{\left( 2n \right)!} \left( 2n \right)! \left( 2n+1 \right) \left( 2n+2 \right)\\
+      &= \left( 2n+1 \right) \left( 2n+2 \right)\left(\frac{n a_0}{2}\right)^2 
+    \end{align*}
+    \item 
+    \begin{align*}
+      \left( \Delta r \right)^2 &= \braket{r^2} - \left(\braket{r}\right)^2 \\
+      &= \left( 2n+2 \right) \left( 2n+1  \right) \left( \frac{n a_0}{2} \right)^2 - \left[ \left( 2n+1 \right) \frac{n a_0}{2} \right]^2 \\
+      &=  \left( 2n+2 \right) \left( 2n+1  \right) \left( \frac{n a_0}{2} \right)^2 - \left( 2n+1 \right)^2 \left( \frac{n a_0}{2} \right)^2\\
+      &=  \left[\left( 2n+2 \right) \left( 2n+1  \right) - \left( 2n+1 \right)^2 \right] \left( \frac{n a_0}{2} \right)^2 \\
+      &=  \left[ 3n^2 + 6n + 2 - 4n^2 - 4n - 1 \right] \left( \frac{n a_0}{2} \right)^2 \\
+      &=  \left( 2n+1 \right) \left( \frac{n a_0}{2} \right)^2 \\
+    \end{align*}
+    Thus,
+      \begin{equation*}
+        \Delta r = \sqrt{2n+1} \frac{n a_0}{2}
+      \end{equation*}
+    And,
+    \begin{equation*}
+      \frac{\Delta r}{\braket{r}} = \frac{1}{\sqrt{2n+1}}
+    \end{equation*}
+    
+    For large values of $ n $, we see that the \textit{relative} uncertainty in $ r $ goes to zero.
+    Physically, this means that we can expect a near circular orbit for large values of $ n $.
+    This makes sense with our classical idea of an orbit.
+  \end{enumerate}
+  
+\item 
+
+\begin{align*}
+  R_{10} &= 2 a_0 ^{-3/2} e ^ {-r /a_0} \\
+  R_{20} &= \frac{1}{\sqrt{2}} a_0^{-3 /2} \left( 1- \frac{1}{2} \frac{r}{a_0} \right) e ^ {-r /2 a_0}\\
+  R_{21} &= \frac{1}{2 \sqrt{6}} a_0^{-3 /2} \left( \frac{r}{a_0} \right) e ^ {-r / 2 a_0}
+\end{align*}
+Since $ R_{10} $ and $ R_{21} $ match the form $ R_{n,n-1} $, we can apply the formula from the last question to get the expectation values:
+\begin{align*}
+  \braket{r_{n,n-1}} &= \left( 2n+1 \right)\frac{n a_0}{2} \\
+  \braket{r_{10}} &= \frac{3 a_0}{2} \\
+  \braket{r_{21}} &= 5 a_0
+\end{align*}
+For $ R_{20} $ we have to a bit more work:
+\begin{align*}
+  \braket{r_{20}} &= \int_{0}^{\infty} r \mathcal{P}_{20}\left( r \right) dr \\
+  &= \int_{0}^{\infty} r^3 R_{20}^2 \\
+  &= \int_{0}^{\infty} r^3 \frac{1}{2 a_0^3} \left( 1- \frac{1}{2} \frac{r}{a_0} \right)^2 e ^ {-r/a_0} \\
+  &= \int_{0}^{\infty} \left( \frac{r^3}{2a_0^3} - \frac{r^4}{2 a_0^4} + \frac{r^5}{8 a_0^5} \right) e ^ {-r /a_0} \\
+  \intertext{\centering Distributing we have three integrals, all fitting the form of $ \int_{0}^{\infty} u^n e ^ {-u}du $}
+  &= \frac{3!}{2} a_0 - \frac{4!}{2}a_0 + \frac{5!}{8}a_0 \\
+  &= 6 a_0
+\end{align*}
+
+In E\&R, we have the equation (7-29):
+
+\begin{equation*}
+  \overline{r_{nl}} = \frac{n^2 a_0}{Z} \left\{ 1+\frac{1}{2} \left[ 1- \frac{l \left( l+1 \right)}{n^2} \right]\right\}
+\end{equation*}
+
+By plugging in $ Z=1 $, we see that:
+\begin{align*}
+  \overline{r_{10}} &= a_0 + \frac{1}{2} a_0 = \frac{3}{2} a_0 \\
+  \overline{r_{20}} &= 4 a_0 + 2 a_0 = 6 a_0 \\
+  \overline{r_{21}} &= 4 a_0 + 1 a_0 = 5 a_0
+\end{align*}
+Hence, our expected values, $ \braket{r_{nl}} $, match those found using (7-29) in E\&R.
+
+By comparing $ \braket{r_{10}} $ and $ \braket{r_{20}} $, we note that their difference is large ($ \frac{7}{2} a_0 $).
+This large difference makes sense as the two states are in different shells.
+However, the relative difference between $ r_{20} $ and $ r_{21} $ is relatively small ($ a_0 $), which makes sense because they are two subshells of the same shell ($ n=2 $).
+The surprising discovery is that the \textit{2p} subshell is closer to the nucleus than the \textit{2s} subshell.
+
+\item 
+\begin{align*}
+  P_{10} &= \int_{0}^{a_0} r^2 R_{10}^2 dr \\
+  &= \int_{0}^{a_0} \frac{r^2}{2} \left( \frac{2}{a_0} \right)^3 e ^ {-2r /a_0} \\
+  &= \int_{0}^{a_0}\frac{4}{a_0^3}r^2 e ^ {-2r / a_0} \\
+  &= \int_{0}^{a_0}\frac{4}{a_0^3}r^2 e ^ {-2r / a_0} && u = -\frac{r}{a_0}\quad du = -\frac{1}{a_0}dr \\
+  &= -4 \int_{0}^{a_0} u^2e ^ {2u} du && \text{integrate by parts: $ f=u^2 $, $ g'=e ^ {2u} $} \\
+  &=  -4 \left[ \frac{u^2e ^ {2u}}{2} - \int_{0}^{a_0} u e ^ {2u}du \right] && \text{integrate by parts again: $ f = u $, $g' = e ^ {2u} $}\\
+  &= -4 \left[ \frac{u^2e ^ {2u}}{2} - \frac{u e ^ {2u}}{2} + \int_{0}^{a_0} \frac{e ^ {2u}}{2} du \right] \\
+  &= -4 \left[ \frac{u^2e ^ {2u}}{2} - \frac{u e ^ {2u}}{2} + \frac{e ^ {2u}}{4} \right] \\
+  &= -4 \left[ \left( \frac{r^2/a_0^2}{2} + \frac{r/a_0 }{2} + \frac{1}{4} \right) e ^ {-2r/a_0} \right]_0^{a_0} \\
+  &= -4 \left( \frac{5}{4}e ^ {-2} - \frac{1}{4} \right) \\
+  &= 1- \frac{5}{e^2} \approx .323
+\end{align*}
+\begin{align*}
+  P_{21} &= \int_{0}^{a_0}r^2R_{21}^2dr \\
+         &= \int_{0}^{a_0} r^4 \frac{1}{24 a_0^4} e ^ {-r / a_0}dr \\
+         &= \frac{1}{24 a_0^4}\int_{0}^{a_0} r^4 e ^ {-r / a_0}dr && u=\frac{r}{a_0} \quad du = \frac{1}{a_0}dr \\
+         &= \frac{1}{24} \int_{0}^{1} u^4e ^ {-u}du \\
+         &= \frac{1}{24} \left[ - \left( u^4+4u^3 + 12u^2 + 24 u + 24 \right) e ^ {-u} \right]_0^1 \\
+         &= 1-\frac{65}{24e} \approx 0.004
+\end{align*}
+
+We see that when $ \ell $ is non-zero, there is a very low probability of the electron being within one Bohr radius of the origin.
+Furthermore, since $ P_{10} $ has a smaller $ n $ value, it makes sense that the probability of electron being closer to the nucleus is higher since it lies in the innermost shell.
+Conversely, for the higher $ n=2 $ shell, it would make sense for the electron to be further from the nucleus.
+
+\end{enumerate}
+
+\end{document}
+
