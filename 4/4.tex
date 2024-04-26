@@ -1,0 +1,224 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN PREAMBLE
+\documentclass[10pt]{article}
+
+%%%% Sets 1 inch margins on document
+\usepackage[margin=1in]{geometry}
+
+%%%% For math macros
+\usepackage{amsmath}
+
+%%%% Needed for including figures and other images
+\usepackage{graphicx}
+
+%%%% Adds ability to adjust document vertical spacing
+% usage:
+%   \setspace{1.5} % 1.5x for line spacing
+\usepackage{setspace}
+
+%%%% Needed for specifying the list items in enumerate env
+% eg. (a,b,b) or (i,ii,iii), (1,2,3)
+% usage:
+%   \begin{enumerate} [label=(\alph*)] % for (a), (b), (c)
+\usepackage{enumitem}
+
+%%%% Defines Times New Roman as font
+  % for math and text environments
+%\usepackage{newtxtext,newtxmath}
+
+  % actually use newcomputermodern
+\usepackage{newcomputermodern}
+
+%%%% For H float option when inserting figure
+%   [H] inserts figure _exactly_ where it is typeset
+% usage:
+%   begin{figure} [H]
+\usepackage{float}
+
+%%%% For fancy header and footer ;)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO,L]{Samuel Barton}
+\fancyhead[CO,C]{PHYS40 - Homework 4}
+\fancyhead[RO,R]{\today}
+\fancyfoot[LO,L]{}
+\fancyfoot[CO,C]{\thepage}
+\fancyfoot[RO,R]{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%%% Setting margins in tabular environments
+% For making equations (esp. fractions) fit in cells vertically
+\usepackage{cellspace}
+\cellspacetoplimit 4pt
+\cellspacebottomlimit 4pt
+
+%%%% define custom command for a raised chi 
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}} % inner command, used by \rchi
+
+%%%% For dirac notation
+\usepackage{braket}
+
+%% END PREAMBLE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\setstretch{1.25} % set spacing to 1.25x
+
+% Assignment Name
+\begin{centering}
+  \section*{HOMEWORK 4}
+\end{centering}
+
+\begin{enumerate}
+\item 
+  \begin{enumerate}
+  \item 
+    With $ E = \mu \cdot B $ and considering the spin up and spin down cases,
+    we have:
+    \begin{align*}
+      \Delta E &= \mu_B B \cos(0) - \mu_B B \cos(\pi) \\
+               &= 2 \mu_B B \\
+               &= 2 \frac{e \hslash}{2m_e} B \\
+               &= 2.24 \times 10^{-23}~\text{J} = 1.40 \times 10^{-4}~\text{eV}
+    \end{align*}
+  \item 
+    The energy required for the electron to flip spin is equal to the $ \Delta E $ found in the last question.
+    Using the equation $ E=\frac{hc}{\lambda} $, we have:
+    \begin{align*}
+      \lambda &= \frac{hc}{\Delta E} \\
+              &= 8.94 \times 10^{-3}~\text{m}
+    \end{align*}
+    The wavelength which causes the electrons' spin to flip is $ 8.94~\text{mm} $
+  \end{enumerate}
+\item
+  We have:
+  \begin{equation*}
+    \Delta E = 2 \mu_B B = \frac{hc}{\lambda}
+  \end{equation*}
+  Thus,
+  \begin{equation*}
+    B = \frac{hc}{\lambda} \frac{1}{2 \mu_B} = .0511~\text{T}
+  \end{equation*}
+\item 
+  For the states with $ \ell=4 $ and $ s=1/2 $, The state with the largest possible $ j $ and largest possible $ m_j $ has $ j=9 / 2 $ and $ m_j = 9 / 2 $.
+  \begin{enumerate}
+  \item   
+  We have:
+  \begin{gather*}
+    \vec{J} = \vec{L} + \vec{S} \\
+    |\vec{J}| = \sqrt{j(j+1)}\hslash = \sqrt{99} \hslash / 2 \\
+    |\vec{L}| = \sqrt{\ell(\ell+1)}\hslash = \sqrt{120} \hslash\\
+    |\vec{S}| = \sqrt{s(s+1)}\hslash = \sqrt{3} \hslash / 2
+  \end{gather*}
+  Now, apply the law of cosines
+  \begin{align*}
+    J^2 &= L^2+S^2 - 2 L S \cos (\pi - \theta) \\
+    \frac{99}{4} &= 20+\frac{3}{4} + 2 \sqrt{15} \cos \theta \\
+    \theta &= \cos ^{-1} \left( \frac{2}{\sqrt{15}} \right) = 1.03~\text{rad}\text{ or }58.9^\circ
+  \end{align*}
+  \item 
+    $ \vec{\mu_{\ell}} $ is antiparallel to $ \vec{L} $ and $ \vec{\mu_{s}} $ is antiparallel to $ \vec{S} $, thus the angle is the same as in part (a), $ \theta = 58.9^\circ $.
+  \item 
+    \begin{equation*}
+      \cos \theta = \frac{J_z}{|\vec{J}|} = \frac{9}{\sqrt{99}}
+    \end{equation*}
+    Thus, $ \theta = 25.24^\circ $.
+  \end{enumerate}
+\item 
+  \begin{enumerate}
+  \item 
+    For the \textit{3d} level, we know that $ n=3 $, $ \ell = 2 $, and $ s=1 / 2 $.
+    
+    Therefore, $ j = \frac{3}{2}, \frac{5}{2} $ and $ m_j = -\frac{5}{2}, -\frac{3}{2}, -\frac{1}{2} \frac{1}{2}, \frac{3}{2}, \frac{5}{2} $
+
+    For $ j=\frac{3}{2} $, we have $ m_j = \frac{-3}{2}, \frac{-1}{2}, \frac{1}{2}, \frac{3}{2} $, i.e., 4 degenerate states.
+    Also, the spectroscopic notation:
+    \begin{equation*}
+      3^2D_{3 / 2}
+    \end{equation*}
+    For $ j=\frac{5}{2} $, we have $ m_j = \frac{-5}{2}, \frac{-3}{2}, \frac{-1}{2}, \frac{1}{2}, \frac{3}{2}, \frac{5}{2} $, i.e., 6 degenerate states.
+    Also, the spectroscopic notation:
+    \begin{equation*}
+      3^2D_{5 / 2}
+    \end{equation*}
+  \item 
+    It is impossible to have this state because the maximum possible value for $ \ell $ is $ \ell = n-1 $, and since $ n=2 $ in this state, it is impossible for $ \ell = 2 $, i.e., the $ D $ subshell.
+  \item 
+    The ground state of the $ H $ atom is not split into two sub-levels by spin-orbit coupling because $ \ell=0 $, and there is only one electron, thus there is no internal magnetic field present to interact with the electron's magnetic moment.
+  \end{enumerate}
+\item 
+  \begin{enumerate}
+  \item 
+    \begin{equation*}
+      a_0 = \frac{4\pi \epsilon_0 \hslash^2}{m_e e ^2}
+    \end{equation*}
+    \begin{align*}
+      E_I &= \frac{e^2}{4 \pi \epsilon_0} \frac{1}{2 a_0} \\
+      &=  \frac{e^2}{4 \pi \epsilon_0} \frac{m_e ^2 e^2}{8\pi \epsilon_0 \hslash^2} \\
+      &=  \frac{1}{2} \frac{e^4}{16 \pi^2 \epsilon_0^2 \hslash^2 c^2} m_e ^2 c^2 \\
+      &=  \frac{1}{2} \left(\frac{e^2}{4 \pi \epsilon_0 \hslash c}\right) ^2 m_e ^2 c^2 \\
+      &=  \frac{1}{2} \alpha^2 m_e ^2 c^2
+    \end{align*}
+  \item 
+    We have the relativistic energy:
+    \[
+      E = \sqrt{\left( \mu c ^2 \right)^2 + \left( pc \right)^2}
+    \]
+    And we know that the rest energy, $ E_0 $:
+   \[
+     E_0 = \mu c ^2
+   \]
+   Thus we can find Kinetic energy by subtracting the rest energy from the total relativistic energy.
+   \begin{align*}
+     \text{KE} &= \sqrt{\left( \mu c ^2 \right)^2 + \left( pc \right)^2} - \mu c ^2 \\
+        &= \sqrt{ \mu^2 c ^4  +  \frac{p^2c ^2 \mu^2 c^4}{\mu^2 c^4}} - \mu c ^2 \\
+        &= \mu c ^2\sqrt{ 1  +  \left(\frac{pc}{\mu c^2}\right)^2} - \mu c ^2 \\
+        &\approx \mu c ^2\left[ 1  +  \frac{1}{2}\left(\frac{pc}{\mu c^2} \right) ^2 - \frac{1}{8}\left(\frac{pc}{\mu c^2} \right)^4\right] - \mu c ^2 && \text{(using a Taylor series expansion)} \\
+        &= \mu c ^2\left[ \frac{1}{2}\left(\frac{pc}{\mu c^2} \right) ^2 - \frac{1}{8}\left(\frac{pc}{\mu c^2} \right)^4\right] \\
+        &= \frac{p^2}{2 \mu} - \frac{1}{8} \frac{p ^4}{\mu^3c^2} \\
+        &= - \frac{p ^4}{8 \mu ^3 c ^2} && \text{(subtracting classical $ KE = p^2 / 2\mu $)}
+   \end{align*}
+   Thus, we have that the lowest order relativistic correction to the classical kinetic energy is 
+   \[
+     \Delta \text{KE} = \frac{p ^4}{8 \mu ^3 c ^2}.
+   \]
+  \item 
+    Since $ j = \ell + s $, there are two possibilities for $ j $:
+    \[
+      j=\ell - \frac{1}{2} \quad \text{and} \quad j = \ell + \frac{1}{2}
+    \]
+    Thus,
+    \[
+      \ell=j + \frac{1}{2} \quad \text{and} \quad \ell = j - \frac{1}{2}
+    \]
+    Start with the $ \ell = j - 1/2 $ case:
+    \begin{align*}
+      f (j, \ell) &= \frac{j \left( j+1 \right) - 3 \ell \left( \ell + 1 \right) - \frac{3}{4}}{\ell \left(  \ell + \frac{1}{2} \right)\left( l+1 \right)} \\
+      &= \frac{j \left( j+1 \right) - 3 \left( j - \frac{1}{2} \right) \left( j + \frac{1}{2} \right) - \frac{3}{4}}{\left( j - \frac{1}{2} \right) \left(  j \right)\left( j+\frac{1}{2} \right)} \\
+      &= \frac{j^2 + j - 3 j^2 }{\left( j - \frac{1}{2} \right) \left(  j \right)\left( j+\frac{1}{2} \right)} \\
+      &= \frac{j \left( 1-2j \right)}{\left( j - \frac{1}{2} \right) \left(  j \right)\left( j+\frac{1}{2} \right)} \\
+      &= \frac{ 1-2j }{\left( j - \frac{1}{2} \right) \left( j+\frac{1}{2} \right)} \\
+      &= \frac{ -2 \left( j - \frac{1}{2} \right) }{\left( j - \frac{1}{2} \right) \left( j+\frac{1}{2} \right)} \\
+      &= - \frac{ 2  }{ \left( j+\frac{1}{2} \right)} \\
+    \end{align*}
+    Now, start with the $ \ell = j + 1/2 $ case:
+    \begin{align*}
+      f (j, \ell) &= \frac{j \left( j+1 \right) - 3 \ell \left( \ell + 1 \right) - \frac{3}{4}}{\ell \left(  \ell + \frac{1}{2} \right)\left( l+1 \right)} \\
+      &= \frac{j \left( j+1 \right) - 3 \left( j + \frac{1}{2} \right) \left( j + \frac{3}{2} \right) - \frac{3}{4}}{\left( j + \frac{1}{2} \right) \left(  j + 1 \right)\left( j+\frac{3}{2} \right)} \\
+      &= \frac{j \left( j+1 \right) - 3  j^2 - 6 j - 3 }{\left( j + \frac{1}{2} \right) \left(  j + 1 \right)\left( j+\frac{3}{2} \right)} \\
+      &= \frac{-2 j ^2 - 5 j - 3}{\left( j + \frac{1}{2} \right) \left(  j + 1 \right)\left( j+\frac{3}{2} \right)} \\
+      &= \frac{-2 \left( j^2 + \frac{5}{2} j + \frac{3}{2} \right)}{\left( j + \frac{1}{2} \right) \left(  j^2 + \frac{5}{2} j + \frac{3}{2} \right)} \\
+      &= -\frac{2}{j + \frac{1}{2}}
+    \end{align*}
+    Hence, we have seen for both case that $ f(j, \ell) $ is actually independent of $ \ell $ and equal to 
+    \[
+      f (n, \ell) = - \frac{2}{j + \frac{1}{2}}.
+    \]
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
+
