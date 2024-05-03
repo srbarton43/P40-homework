@@ -1,0 +1,238 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN PREAMBLE
+\documentclass[10pt]{article}
+
+%%%% Sets 1 inch margins on document
+\usepackage[margin=1in]{geometry}
+
+%%%% For math macros
+\usepackage{amsmath}
+
+%%%% Needed for including figures and other images
+\usepackage{graphicx}
+
+%%%% Adds ability to adjust document vertical spacing
+% usage:
+%   \setspace{1.5} % 1.5x for line spacing
+\usepackage{setspace}
+
+%%%% Needed for specifying the list items in enumerate env
+% eg. (a,b,b) or (i,ii,iii), (1,2,3)
+% usage:
+%   \begin{enumerate} [label=(\alph*)] % for (a), (b), (c)
+\usepackage{enumitem}
+
+%%%% Defines Times New Roman as font
+  % for math and text environments
+%\usepackage{newtxtext,newtxmath}
+
+  % actually use newcomputermodern
+\usepackage{newcomputermodern}
+
+%%%% For H float option when inserting figure
+%   [H] inserts figure _exactly_ where it is typeset
+% usage:
+%   begin{figure} [H]
+\usepackage{float}
+
+%%%% For fancy header and footer ;)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO,L]{Samuel Barton}
+\fancyhead[CO,C]{PHYS40 - Homework 5}
+\fancyhead[RO,R]{\today}
+\fancyfoot[LO,L]{}
+\fancyfoot[CO,C]{\thepage}
+\fancyfoot[RO,R]{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%%% Setting margins in tabular environments
+% For making equations (esp. fractions) fit in cells vertically
+\usepackage[column=C]{cellspace}
+\cellspacetoplimit 4pt
+\cellspacebottomlimit 4pt
+
+%%%% define custom command for a raised chi 
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}} % inner command, used by \rchi
+
+%%%% For dirac notation
+\usepackage{braket}
+
+\usepackage{siunitx}
+\DeclareSIUnit\angstrom{Å}
+
+%% END PREAMBLE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\setstretch{1.25} % set spacing to 1.25x
+
+% Assignment Name
+\begin{centering}
+  \section*{HOMEWORK 5}
+\end{centering}
+
+\begin{enumerate}
+\item 
+  From Example 9-2 we have the expanded equation:
+ \begin{multline*}
+   \psi_A = \frac{1}{\sqrt{3!}} [ \psi_ \alpha (1) \psi_ \beta(2) \psi_ \gamma(3) + \psi_ \beta(1) \psi_ \gamma(2) \psi_ \alpha(3) + \psi_ \gamma(1) \psi_ \alpha(2) \psi_ \beta(3) \\ 
+   - \psi_ \gamma(1) \psi_ \beta (2) \psi_ \alpha(3) - \psi_ \beta(1) \psi_ \alpha (2) \psi_ \gamma (3) - \psi_ \alpha (1) \psi_ \gamma(2) \psi_ \beta(3) ]
+ \end{multline*}
+\begin{enumerate}
+  \item Without loss of generality, let us swap particles 1 and 3. Now we have the equation:
+  \begin{multline*}
+    \psi_A' = \frac{1}{\sqrt{3!}} [ \psi_ \gamma (1) \psi_ \beta(2) \psi_ \alpha(3) + \psi_ \alpha(1) \psi_ \gamma(2) \psi_ \beta(3) + \psi_ \beta(1) \psi_ \alpha(2) \psi_ \gamma(3) \\ 
+    - \psi_ \alpha(1) \psi_ \beta (2) \psi_ \gamma(3) - \psi_ \gamma(1) \psi_ \alpha (2) \psi_ \beta (3) - \psi_ \beta (1) \psi_ \gamma(2) \psi_ \alpha(3) ]
+  \end{multline*}
+  We see that: 
+  \[
+    \psi_A' = - \psi_A
+  .\]
+  Clearly, the same result is achieved by swapping particles 1 and 2, or particles 2 and 3.
+  Thus, the expanded form of the wave function is antisymmetric with respect to an exchange of the labels of any two particles
+  \item Without loss of generality, assume that particles 1 and 2 are in the same space and spin quantum state.
+    Now er have the equation:
+  \begin{multline*}
+    \psi_A' = \frac{1}{\sqrt{3!}} [ \psi_ \alpha (1) \psi_ \alpha(2) \psi_ \gamma(3) + \psi_ \alpha(1) \psi_ \gamma(2) \psi_ \alpha(3) + \psi_ \gamma(1) \psi_ \alpha(2) \psi_ \alpha(3) \\ 
+    - \psi_ \gamma(1) \psi_ \alpha (2) \psi_ \alpha(3) - \psi_ \alpha(1) \psi_ \alpha (2) \psi_ \gamma (3) - \psi_ \alpha (1) \psi_ \gamma(2) \psi_ \alpha(3) ]
+  \end{multline*}
+  Here we see that all terms cancel, and that 
+  \[
+    \psi_A' = 0
+  .\]
+  The same result occurs if any other particles are in the same space and spin quantum state.
+\end{enumerate}
+\item
+  For the particle in a box, we have ground energy state, 
+  \[
+    E_0 = \frac{h^2}{8ma^2}
+  .\]
+  For $ a=\qty{2}{\angstrom} $, we have,
+  \[
+    E_0=\qty{9.4}{\electronvolt}
+  .\]
+  For quantum numbers $ n_x,n_y,n_z $, we have,
+  \[
+    E_{n_xn_yn_z} = \left( n_x^2+n_y^2+n_z^2 \right) E_0 
+  .\]
+  \begin{enumerate}
+  \item
+    If the particles are fermions, they must obey Pauli's Exclusion Principle.
+    Therefore, two particles can be in each state with one having ``spin up", and the other having ``spin down".
+    Thus, for the lowest energy of the system we have the states,
+    \[
+      (1,1,1), (1,1,2), (1,2,1), (2,1,1)
+    .\]
+    These quantum numbers yield the energies,
+    \begin{gather*}
+      E_{111} = \left( \qty{9.4}{\electronvolt} \right) \left(1^2 + 1^2 + 1^2\right) = \qty{28.2}{\electronvolt} \\
+      E_{112}=E_{121}=E_{211} = \left( \qty{9.4}{\electronvolt} \right) \left( 2^2+1^2+1^2 \right) = \qty{56.4}{\electronvolt}
+    .\end{gather*}
+    And thus,
+    \[
+      E=2 \left( \qty{28.2}{\electronvolt} + 3\times \qty{56.4}{\electronvolt} \right) = \qty{398.4}{\electronvolt}
+    .\]
+    \item
+      Bosons do not follow the Pauli Exclusion Principle, so all 8 particles can occupy the ground state,
+      \[
+        (1,1,1)
+      .\]
+      Therefore,
+      \[
+        E=8\times E_{111} = \qty{225.6}{\electronvolt}
+      .\]
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item 
+    \begin{align*}
+      \mathcal{P} \left( x_1,x_2 \right) &= \left| \psi \left( x_1,x_2 \right) \right|^2 \\
+                                     &= \frac{1}{2} \left[ \psi_n \left( x_1 \right) \psi_m \left( x_2 \right) \pm \psi_n \left( x_2 \right) \psi_m \left( x_1 \right) \right]^2 \\
+                                     &= \frac{1}{2} \left[ \left|\psi_n \left( x_1 \right) \right| ^2 \left| \psi_m \left( x_2 \right) \right| ^2 + \left| \psi_n \left( x_2 \right) \right| ^2 \left| \psi_m \left( x_1 \right) \right| ^2 \pm 2 \psi_n \left( x_1 \right) \psi_m \left( x_2 \right) \psi_n \left( x_2 \right) \psi_m \left( x_1 \right) \right]
+    \end{align*}
+  \item
+    \begin{align*}
+      P_{left} ={}& \int_{0}^{a / 2} \int_{0}^{a / 2} \mathcal{P} \left( x_1,x_2 \right) d x_1 d x_2 \\
+      \begin{split} 
+        ={}& \int_{0}^{a / 2} \int_{0}^{a / 2} \frac{1}{2} \bigl[ \left|\psi_n \left( x_1 \right) \right| ^2 \left| \psi_m \left( x_2 \right) \right| ^2 + \left| \psi_n \left( x_2 \right) \right| ^2 \left| \psi_m \left( x_1 \right) \right| ^2 \\
+        & + 2 \psi_n \left( x_1 \right) \psi_m \left( x_2 \right) \psi_n \left( x_2 \right) \psi_m \left( x_1 \right) \bigr] d x_1 d x_2
+      \end{split}\\
+      \begin{split} 
+        ={}& \frac{1}{2} \int_{0}^{a / 2} \left|\psi_n \left( x_1 \right) \right| ^2 d x_1 \int_{0}^{a / 2} \left| \psi_m \left( x_2 \right) \right| ^2 d x_2 + \frac{1}{2} \int_{0}^{a / 2} \left| \psi_n \left( x_2 \right) \right| ^2 d x_2 \int_{0}^{a / 2} \left| \psi_m \left( x_1 \right) \right| ^2 d x_1 \\
+        & + \int_{0}^{a / 2} \psi_n \left( x_1 \right) \psi_m \left( x_1 \right)  d x_1 \int_{0}^{a / 2} \psi_m \left( x_2 \right) \psi_n \left( x_2 \right)  d x_2
+      \end{split} \\
+      \begin{split} 
+        ={}& \frac{2}{a^2} \bigl[ \int_{0}^{a / 2} \cos^2 \left( \frac{\pi x_1}{a} \right) d x_1 \int_{0}^{a / 2} \sin^2 \left( \frac{\pi x_2}{a} \right) d x_2 +  \int_{0}^{a / 2} \sin ^2 \left( \frac{\pi x_1}{a} \right) d x_2 \int_{0}^{a / 2} \cos ^2 \left( \frac{\pi x_1}{a} \right) d x_1 \\
+           & + 2 \int_{0}^{a / 2} \sin \left( \frac{\pi x_1}{a} \right) \cos \left( \frac{\pi x_1}{a} \right) d x_1 \int_{0}^{a / 2} \cos \left( \frac{\pi x_2}{a} \right) \sin \left( \frac{\pi x_2}{a} \right)  d x_2 \bigr]
+      \end{split} \\
+                  &= \frac{2}{a^2} \left[ \frac{a^2}{16} + \frac{a^2}{16} + \frac{a^2}{2\pi^2} \right] \\
+                  &= \frac{1}{4} + \frac{1}{\pi^2} \approx \num{0,351}
+    \end{align*}
+  \item 
+    For the antisymmetric case, we see that we simply must subtract the rightmost term instead of adding it.
+    Thus, we have
+   \[
+     P_{left} = \frac{1}{4} - \frac{1}{\pi^2} \approx \num{0,149}
+   .\]
+  \end{enumerate}
+\item 
+  \begin{enumerate}
+  \item 
+    We know that the integral of an odd function over all space is equal to zero, whereas the integral of an even function over all space is nonzero.
+    Here we notice that we have double integral with each integral consisting of a polynomial multiplied by an exponential of the form $ e ^ {-x^2} $.
+    Since the exponential is an even function, the overall integral will be odd if either of the polynomial functions are odd functions, i.e., they are to an odd power.
+    Therefore, the integral of that form will be zero unless both $ n $ and $ m $ are even.
+  \item 
+    
+    Both integrals fits the form of the one from lecture 9, 
+    \[
+      \int_{-\infty}^{\infty} u^{n} e ^ {-u^2}du
+    ,\]
+    and we know the solution to this integral for even $ n $ is 
+    \[
+      \int_{-\infty}^{\infty} u^{n} e ^ {-u^2}du = \left( - \frac{d}{da} \right) ^{n / 2} \sqrt{\frac{\pi}{a}} \Bigg|_{a=1}
+    \]
+    Thus,
+    \begin{equation*}
+      \int_{-\infty}^{\infty} \zeta ^2 e ^ {-\zeta^2}d \zeta = \frac{\sqrt{\pi}}{2}
+    ,\end{equation*}
+    And,
+    \begin{equation*}
+      \int_{-\infty}^{\infty} \zeta ^4 e ^ {-\zeta^2}d \zeta = \frac{3\sqrt{\pi}}{4}
+    .\end{equation*}
+  \item 
+    \begin{align*}
+      I &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left| \psi_n \left( x_1 \right) \right|^2 \hat{W} \left| \psi_n \left( x_1 \right) \right| ^2 d x_1 d x_2  \\
+      &= -\frac{1}{2} m \omega_0 ^2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{1}{4\pi x_0^2} \zeta_2^2 e ^ {- \left( \zeta_1^2+\zeta_2^2 \right)} \left( x_1-x_2 \right) ^2 d x_1 d x_2 \\
+      &= -\frac{1}{2} m \omega_0 ^2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{1}{4\pi x_0^2} \zeta_2^2 e ^ {- \left( \zeta_1^2+\zeta_2^2 \right)} \left( x_1^2-2x_1x_2+x_2^2 \right) d x_1 d x_2 \\
+      &= -\frac{1}{8\pi} m \omega_0 ^2 x_0^2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}  \zeta_2^2 e ^ {- \left( \zeta_1^2+\zeta_2^2 \right)} \left( \zeta_1^2-2\zeta_1\zeta_2+\zeta_2^2 \right) d \zeta_1 d \zeta_2 \\
+      &= -\frac{1}{8\pi} m \omega_0 ^2 x_0 ^2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}  \zeta_1^2 \zeta_2^2 e ^ {- \left( \zeta_1^2+\zeta_2^2 \right)}-2\zeta_1\zeta_2 e ^ {- \left( \zeta_1^2+\zeta_2^2 \right)}+\zeta_2^2e ^ {- \left( \zeta_1^2 +\zeta_2^2 \right)}  d \zeta_1 d \zeta_2 \\
+      &= -\frac{1}{8\pi} m \omega_0 ^2 x_0^2 \left[ \frac{\pi}{4} - 0 +  \frac{3\pi x_0}{4} \right] \\
+      &= -\frac{1}{32} m \omega_0 ^2 x_0^2 \left( 1 + 3 x_0 \right)
+    \end{align*}
+
+    \begin{align*}
+      J &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \psi_n \left( x_1 \right) ^* \psi_m \left( x_2 \right) \hat{W} \psi_n \left( x_2 \right) ^* \psi_m \left( x_1 \right) d x_1 d x_2 \\
+      &= -\frac{1}{8\pi x_0 ^2} m \omega_0 ^2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \zeta_1 \zeta_2 e ^ {- \left( \zeta_1^2+\zeta_2^2 \right)} \left( x_1-x_2 \right)^2 d x_1 d x_2 \\
+      &= -\frac{1}{8\pi} m \omega_0 ^2 x_0^2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \zeta_1 \zeta_2 e ^ {- \left( \zeta_1^2+\zeta_2^2 \right)} \left( \zeta_1^2 - 2 \zeta_1 \zeta_2 + \zeta_2 ^2 \right) d x_1 d x_2 \\
+      &= -\frac{1}{8\pi} m \omega_0 ^2 x_0^2 \left[ 0 - \frac{\pi}{2} + 0 \right] \\
+      &= \frac{1}{16\pi} m \omega_0 ^2 x_0^2 
+    \end{align*}
+
+    Since for the symmetric spatial state, 
+    \[
+      \Delta E = I + J
+    \]
+    and for the antisymmetric spatial state,
+    \[
+      \Delta E = I - J
+    ,\]
+    we see that particles in a symmetric spatial state have a higher energy than ones in an antisymmetric state.
+    
+  \end{enumerate}
+\end{enumerate}
+\end{document}
