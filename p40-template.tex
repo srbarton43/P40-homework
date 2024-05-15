@@ -49,7 +49,7 @@
 
 %%%% Setting margins in tabular environments
 % For making equations (esp. fractions) fit in cells vertically
-\usepackage{cellspace}
+\usepackage[column=C]{cellspace}
 \cellspacetoplimit 4pt
 \cellspacebottomlimit 4pt
 
@@ -59,6 +59,11 @@
 
 %%%% For dirac notation
 \usepackage{braket}
+
+%%%% For sci. not. and units spacing
+\usepackage{siunitx}
+% define the angstrom as a unit
+\DeclareSIUnit\angstrom{Å}
 
 %% END PREAMBLE %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
