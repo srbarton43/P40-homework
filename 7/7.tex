@@ -1,0 +1,204 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN PREAMBLE
+\documentclass[10pt]{article}
+
+%%%% Sets 1 inch margins on document
+\usepackage[margin=1in]{geometry}
+
+%%%% For math macros
+\usepackage{amsmath}
+
+%%%% Needed for including figures and other images
+\usepackage{graphicx}
+
+%%%% Adds ability to adjust document vertical spacing
+% usage:
+%   \setspace{1.5} % 1.5x for line spacing
+\usepackage{setspace}
+
+%%%% Needed for specifying the list items in enumerate env
+% eg. (a,b,b) or (i,ii,iii), (1,2,3)
+% usage:
+%   \begin{enumerate} [label=(\alph*)] % for (a), (b), (c)
+\usepackage{enumitem}
+
+%%%% Defines Times New Roman as font
+  % for math and text environments
+%\usepackage{newtxtext,newtxmath}
+
+  % actually use newcomputermodern
+\usepackage{newcomputermodern}
+
+%%%% For H float option when inserting figure
+%   [H] inserts figure _exactly_ where it is typeset
+% usage:
+%   begin{figure} [H]
+\usepackage{float}
+
+%%%% For fancy header and footer ;)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO,L]{Samuel Barton}
+\fancyhead[CO,C]{PHYS40 - Homework 7}
+\fancyhead[RO,R]{\today}
+\fancyfoot[LO,L]{}
+\fancyfoot[CO,C]{\thepage}
+\fancyfoot[RO,R]{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%%% Setting margins in tabular environments
+% For making equations (esp. fractions) fit in cells vertically
+\usepackage[column=C]{cellspace}
+\cellspacetoplimit 4pt
+\cellspacebottomlimit 4pt
+
+%%%% define custom command for a raised chi 
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}} % inner command, used by \rchi
+
+%%%% For dirac notation
+\usepackage{braket}
+
+%%%% For sci. not. and units spacing
+\usepackage{siunitx}
+% define the angstrom as a unit
+\DeclareSIUnit\angstrom{Å}
+
+%% END PREAMBLE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\setstretch{1.25} % set spacing to 1.25x
+
+% Assignment Name
+\begin{centering}
+  \section*{HOMEWORK 7}
+\end{centering}
+
+\begin{enumerate}
+\item 
+  The average kinetic energy of a sample of gas molecules is a function of temperature and given by 
+  \[
+    KE = \frac{3 k_b T}{2}
+  .\]
+  Thus, we find that 
+  \[
+    T = \frac{2 \cdot KE}{3 k_b}
+  .\]
+  Plugging in values and setting $ KE = \qty{4.7}{\electronvolt} = \qty{7.52E-19}{\joule} $, we have
+  
+ \[
+   T = \qty{3.63E4}{\kelvin}
+ .\]
+
+ At this temperature, the average kinetic energy of the molecules would exceed the binding energy, and the molecules would dissociate into free H atoms.
+ 
+\item 
+  The zero point energy is given by 
+  \[
+    E_{zp} = \frac{1}{2} h v_0
+  ,\]
+  where 
+  \[
+    v_0 = \frac{1}{2\pi} \sqrt{\frac{k}{\mu}}
+  .\]
+  Since $ \text{H}_2 $ and $ \text{HD} $ contain the same atoms, their $ k $ should be identical, meaning that only their reduced mass, $ \mu $, will be different.
+
+  For $ \text{H}_2 $, we have 
+  \[
+    \mu_{H_2} = \frac{m_H \cdot m_H}{m_H + m_H} = \frac{m_H}{2}
+  .\]
+  For $ \text{HD} $, we have 
+  \[
+    \mu_{HD} = \frac{2m_H \cdot m_H}{2m_H + m_H} = \frac{2m_H}{3}
+  .\]
+  Thus, we have $ \mu_{HD} > \mu_{H_2} $, and therefore the zero point energy for $ \text{H}_2 $ is larger than that for $ \text{HD} $.
+  
+  The dissociation energy is equal to 
+  \[
+    E_d = V_0 - E_{zp}
+  ,\]
+  thus, the binding energy for $ \text{HD} $ is larger than the binding energy for $ \text{H}_2 $.
+
+  Table 12-1 in E\&R confirms these results.
+\item 
+  \begin{enumerate}
+  \item 
+    We have the equation for inverse wavelength:
+    \[
+      \frac{1}{\lambda} = \frac{\hslash}{2\pi I c} l
+    .\]
+    Taking the reciprocal, we have
+    \[
+      \lambda = \frac{2\pi I c}{\hslash l}
+    .\]
+    Thus, for $ l=1 \to l = 2 $, we have 
+    \[
+      \lambda =\qty{1.47}{\milli\meter}
+    .\]
+    And for $ l=2 \to l = 3 $, we have 
+    \[
+      \lambda =\qty{0.983}{\milli\meter}
+    \]
+  \item 
+    We have 
+    \[
+      r ^2 = \frac{h l}{\left( 2\pi \right)^2 \mu f} = \qty{1.21 E -47}{m ^2}
+    ,\]
+    and using the same internuclear distance, $ r $, we have the reduced mass for the different carbon isotope, 
+    \[
+      \mu = \frac{hl}{\left( 2\pi \right)^2 r ^2 f} = \qty{12.56}{amu}
+    .\]
+    Hence, the mass number for this isotope of carbon is $ 13 $.
+  \item 
+    We have the reduced mass, 
+    \[
+      \mu = \frac{m_C \cdot m_O}{m_C + m_O} = \qty{6.857}{amu} = \qty{1.14E -26}{\kg}
+    .\]
+    For the energy of ground state vibrations, we have 
+    \[
+      E = hf = \frac{1}{2} h v_0
+    \]
+    where
+    \[
+    v_0 = \frac{1}{2\pi} \sqrt{\frac{k}{\mu}}
+    .\]
+    Hence, we have 
+    \[
+      k = \left( 4 \pi f \right) ^2 \mu = \qty{7.41E3}{\kilogram\per\square\second}
+    \]
+    To find the amplitude, we have 
+    \[
+      \frac{1}{2} k A^2 = \frac{1}{2} h v_0
+    ,\]
+    thus, 
+    \[
+      A =  \sqrt{\frac{h}{2\pi k} \sqrt{\frac{k}{\mu}}} = \qty{3.39E-12}{\meter}
+    .\]
+    The carbon monoxide bond length is $ \qty{0.112}{\nano\meter} $, thus the amplitude of the ground-state vibrations is around \qty{3.03}{\percent} of the bond length.
+  \end{enumerate}
+\item 
+  We start with the equation 
+  \begin{align*}
+    \frac{1}{\lambda} &= \frac{\hslash}{2\pi I c} l \\
+     &= \frac{\hslash}{2 \pi c \mu r ^2} l
+  \end{align*}
+  Since we don't know the specific quantum numbers, $ l $, we must instead look at the transitions between these states. Hence, we use the equation 
+  \[
+    \frac{1}{\lambda_1} - \frac{1}{\lambda_2} = \frac{\hslash}{2 \pi c \mu r ^2} \cdot 1
+  .\]
+  Plugging in values for the wavelengths, we get the differences 
+  \[
+    \qtylist{1.28E-10;1.31E-10;1.29E-10;1.30E-10}{\meter}
+  .\]
+  Taking the average, we have 
+  \[
+    r \approx\qty{1.30E-10}{\meter}
+  \]
+  which is close to the actual value of \qty{1.27E-10}{\meter}.
+\end{enumerate}
+
+\end{document}
+
